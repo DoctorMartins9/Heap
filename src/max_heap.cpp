@@ -1,119 +1,253 @@
-#include <cassert>  // For debug only   -> assert(result == ...);
-#include <iostream>
-#include <vector>
+#include <cassert>      // Debug library        -> assert(...);
+#include <iostream>     // I/O operations       -> std::cout , std::cin , ...
+#include <vector>       // Vector manipulation  -> std::vector, ...
 
-namespace max_heap{
+namespace heap{
     
     class Node{
-        
-    public:
-        int index;
+    private:
         int value;
 
+        // Set node value
+        void setValue(int input){
+            value = input;
+        }
+
+    public:
+        // Default constructor
         Node() {}
 
+        // Constructor by value
         Node(int i){
-            value = i;
-        } 
+            setValue(i);
+        }
+
+        // Copy constructor
+  /*      
+        Node( Node& n){
+            setValue(n.getValue());
+        }
         
-        
+*/
+       Node operator= (Node n){
+           value = n.getValue();
+       }
+
+        // Return Node value
+        int getValue(){
+            return value;
+        }
   
     };
 
-    class MaxHeap {
+    // Parent abstract class
+    class Heap{
+
+    protected:
+
+        std::vector<Node> heap;     // Vector of elements    
+
+        void addElement(int n){
+            Node temp =  Node(n);
+            heap.push_back(temp);
+        }
+
+        // To override
+        virtual void erase(uint index){}
+        virtual void eraseByValue(int value){}
+        virtual void heapify(std::vector<Node> &heap, uint n, int i){}
+        virtual void addVector(std::vector<int> &vec){}
+        virtual void addHeap(Heap &vector){}
+
+    public:
+     
+        // Constructors
+        Heap (std::vector<int> input) {
+            
+            for(int i = 0; i < input.size(); i++)
+                addElement(input[i]);
+        }
+
+        // Return number of elements in heap
+        uint getElements(){
+            return heap.size();
+        }
+
+        std::vector<int> getVector(){
+
+            std::vector<int> vect;
+            
+            vect.resize(getElements());
+            
+            for(int i = 0; i < heap.size(); i++){
+                vect[i] = heap[i].getValue();
+            }
+
+            return vect;
+        }
+
+        // "toString()" override
+        friend std::ostream& operator<<(std::ostream& stream, Heap& hp){
+            std::string result = "{ ";
+                   
+            auto heap = hp.getVector();
+            for(uint i = 0 ; i < heap.size(); i++)
+                result+= "(" + std::to_string(heap[i]) + ") ";
+                
+            result += "}";
+
+            stream << result;
+            return stream; 
+        }
+           
+        int operator[](int n){
+            
+            return heap[n].getValue(); 
+        }
+           
+
+    };
+
+
+    class MaxHeap : public Heap {
+
     private:
+
       
-        uint elements;
+  
 
-
-        void heapify(std::vector<Node> &heap, uint n, int i){
-            int largest = i; // Initialize largest as root 
-            int l = 2*i + 1; // left = 2*i + 1 
-            int r = 2*i + 2; // right = 2*i + 2 
-       
-            // If left child is larger than root 
-            if (l < n && heap[l].value > heap[largest].value) 
+        // Build the subtree
+        void heapify(std::vector<Node> &heap, uint n, int i) override {
+            
+            int largest = i; 
+            int l = 2*i + 1; 
+            int r = 2*i + 2;
+        
+            if (l < n && heap[l].getValue() > heap[largest].getValue()) 
                 largest = l; 
         
-            // If right child is larger than largest so far 
-            if (r < n && heap[r].value > heap[largest].value) 
+            if (r < n && heap[r].getValue() > heap[largest].getValue()) 
                 largest = r;
 
-                //printf("SWAPPATI %i con %i\n",i, largest); 
-        
-            // If largest is not root 
             if (largest != i) 
             { 
                 Node temp = heap[i];
                 heap[i] = heap[largest];
                 heap[largest] = temp;
                 
-        
-                // Recursively heapify the affected sub-tree 
                 heapify(heap, n, largest); 
-
             } 
         }
 
+        // Build the tree
         void MaxHeapify(){
-         for (int i = elements / 2 - 1; i >= 0; i--)
-                heapify(heap, elements, i);
-            }
+            for (int i = (getElements() / 2) - 1 ; i >= 0 ; i--)
+                heapify(heap, getElements(), i);            
+        }
+
 
     public:
 
-        std::vector<Node> heap;
-        MaxHeap(std::vector<Node> input) : heap(input){
-            elements = input.size();
+        static void heapSort(std::vector<int> &vec){ 
+            std::vector<int> res;
+            uint size = vec.size();
+            res.reserve(size);
+            MaxHeap mh = MaxHeap(vec);
+            for(uint i = 0; i < size; i++){
+                
+                res.insert(res.end() -i, mh[0]);
+                mh.erase(0);
+            }
+
+            vec =res; 
+
+        } 
+        
+        MaxHeap(std::vector<int> input) : Heap(input) {
             MaxHeapify();
         }
 
-        uint getElements(){
-            return elements;
-        }
-        
+        // Add an element in heap and then re-order
         bool addElement(int n){
             Node temp =  Node(n);
-
             heap.push_back(temp);
-            elements++;
             MaxHeapify();
         }
 
-        
+        void erase(uint index) override {
+            heap.erase(heap.begin() + index);
+            MaxHeapify();
+        }
+
+        void eraseByValue(int value) override {
+
+            for(uint i = 0 ; i < getElements() ; i++)
+                if(heap[i].getValue() == value ){
+                    heap.erase(heap.begin() + i);
+                    i = -1;
+                }
+            MaxHeapify();
+        }
+
+        void addVector(std::vector<int> &vec) override {
+            
+            for(int i = 0; i < vec.size() ; i++ )
+                addElement(vec[i]);
+            
+        }
+
+        MaxHeap operator+(Heap &input) {
+            auto s = input.getVector();
+            auto p = getVector();
+
+            s.insert(s.end(), p.begin(), p.end());
+
+
+            return MaxHeap(s);
+        }
+
     };
 
-}
-
+}   // namespace 'heap'Node
 
 int main(){
 
-    std::vector<max_heap::Node> heap;
-    heap.resize(10);
-    for(int i = 0 ; i < 10; i++ ){
-        heap[i].value = i;
+    std::vector<int> heap;
+
+    for(int i = 0; i < 10 ; i++)
+        heap.push_back(10 - i); 
+
+
+    for(int i =  0; i < heap.size(); i++){
+        printf("%i ", heap[i]);
     }
 
-    max_heap::MaxHeap mh = max_heap::MaxHeap(heap);
+    printf("\n");
 
-    for(int i = 0 ; i < 10; i++ ){
-        printf("%i\n", mh.heap[i].value);
-    }
-    printf("\n\n\n\n");
-    mh.addElement(10);
+   
+    //heap::MaxHeap mc = heap::MaxHeap(heap);
+    heap::MaxHeap::heapSort(heap);
 
+    for(int i =  0; i < heap.size(); i++){
+            printf("%i ", heap[i]);
+        }
+  printf("\n");
 
-   for(int i = 0 ; i < 11; i++ ){
-        printf("%i\n", mh.heap[i].value);
-    }
+   /* std::cout << mc << std::endl;
 
+    std::vector<int> heap2;
 
-    mh.addElement(-15);
-    printf("\n\n");
+    for(int i = 10; i < 20 ; i++)
+        heap2.push_back(15);
 
-   for(int i = 0 ; i < 12; i++ ){
-        printf("%i\n", mh.heap[i].value);
-    }
+    heap::MaxHeap mc2 = heap::MaxHeap(heap2);
+    
+    std::cout << mc2 << std::endl;
+
+    heap::MaxHeap mc3 = mc + mc2;
+
+    std::cout << mc3 << std::endl;*/
+
 
 
 
