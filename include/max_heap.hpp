@@ -5,6 +5,11 @@ namespace heap{
 
     template<typename T>
     class MaxHeap : public Heap<T> {
+    
+    using Heap<T>::heap;
+    using Heap<T>::getElements;
+    using Heap<T>::addElement;
+    using Heap<T>::getVector;
 
     private:  
 
@@ -23,13 +28,13 @@ namespace heap{
         // Add an element in heap and then re-order
         void addElement(T n);
 
-        void erase(uint index) override;
+        void erase(uint index);
 
-        void eraseByValue(T value) override;
+        void eraseByValue(T value);
 
-        void addVector(std::vector<T> &vec) override;
+        void addVector(std::vector<T> &vec);
 
-        void addHeap(Heap<T> &vector) override;
+        void addHeap(Heap<T> &vector);
 
         MaxHeap operator+(Heap<T> &input);
 

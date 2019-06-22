@@ -28,13 +28,15 @@ namespace heap {
     // Build the tree
     template<typename T>
     void MaxHeap<T>::maxHeapify(){
-        for (int i = (getElements() / 2) - 1 ; i >= 0 ; i--)
-            heapify(heap, getElements(), i);
+        
+        for (int i = ( getElements() / 2 ) - 1 ; i >= 0 ; i--)
+            heapify(heap , getElements() , i);
+    
     }
 
     template<typename T>
     void MaxHeap<T>::heapSort(std::vector<T> &vec){ 
-        std::vector<int> res;
+        std::vector<T> res;
         uint size = vec.size();
         res.reserve(size);
         MaxHeap mh = MaxHeap(vec);
@@ -56,7 +58,7 @@ namespace heap {
     // Add an element in heap and then re-order
     template<typename T>
     void MaxHeap<T>::addElement(T n){
-        Heap::addElement(n);
+        Heap<T>::addElement(n);
         maxHeapify();
     }
 
@@ -101,5 +103,16 @@ namespace heap {
         return MaxHeap(s);
     }
 
+        // Virtual cannot implement template !!
+        /*
+        template<typename T>
+        void erase(uint index){}
+        template<typename T>
+        void eraseByValue(T value){}
+        template<typename T>
+        void addVector(std::vector<T> &vec){}
+        template<typename T>
+        void addHeap(Heap<T> &vector){}
+         */
 }   // namespace 'heap'Node
 

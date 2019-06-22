@@ -17,10 +17,10 @@ namespace heap{
         void addElement(T n);
 
         // To override
-        virtual void erase(uint index) const = 0;
-        virtual void eraseByValue(T value) const = 0;
-        virtual void addVector(std::vector<T> &vec) const = 0;
-        virtual void addHeap(Heap &vector) const = 0;
+        void erase(uint index);
+        void eraseByValue(T value);
+        void addVector(std::vector<T> &vec);
+        void addHeap(Heap<T> &vector);
      
         // Constructors
         Heap (std::vector<T> input);
