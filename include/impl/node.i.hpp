@@ -1,7 +1,7 @@
 #include <vector>       // Vector manipulation  -> std::vector, ...
 #include <iostream>     // I/O operations       -> std::cout,   ...
 
-namespace heap {
+namespace hp {
     
     // Set node value
     template<typename T>

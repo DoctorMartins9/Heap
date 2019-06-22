@@ -1,5 +1,5 @@
 
-namespace heap { 
+namespace hp { 
 
     // Build the subtree
     template<typename T>

@@ -1,0 +1,7 @@
+IntHeapTest 0 0
+FloatHeapTest 0 0
+DoubleHeapTest 0 0
+---
+IntHeapTest
+FloatHeapTest
+DoubleHeapTest

@@ -1,7 +1,7 @@
 #pragma once
 #include "heap.hpp"
 
-namespace heap{ 
+namespace hp{ 
 
     template<typename T>
     class MaxHeap : public Heap<T> {

@@ -1,5 +1,5 @@
 
-namespace heap{
+namespace hp{
 
     template<typename T>
     void Heap<T>::addElement(T n){

@@ -34,8 +34,32 @@ if (DOXYGEN_FOUND)
 endif()
 
 # BUILD TARGETS ---------------------------------------------------------------
-include_directories(${PROJECT_SOURCE_DIR}/include)
 
-file(GLOB_RECURSE SRCS ${PROJECT_SOURCE_DIR}/src/*.cpp) # Find cpp files in src
+include_directories(${PROJECT_SOURCE_DIR}/include
+                    ${PROJECT_SOURCE_DIR}/lib)
+
+file(GLOB_RECURSE SRCS ${PROJECT_SOURCE_DIR}/src/*.cpp)
 
 add_executable( my_heap ${SRCS} )
+
+add_library(hp ${SRCS})
+
+add_executable(heap_test EXCLUDE_FROM_ALL
+               ${PROJECT_SOURCE_DIR}/tests/test.cpp)
+target_link_libraries(heap_test hp)
+
+# TEST DIRECTIVES -------------------------------------------------------------
+
+enable_testing()
+
+add_test(NAME IntHeapTest
+         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build
+         COMMAND ./heap_test [IntHeapTest])
+
+add_test(NAME FloatHeapTest
+WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build
+COMMAND ./heap_test [FloatHeapTest])
+
+add_test(NAME DoubleHeapTest
+WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build
+COMMAND ./heap_test [DoubleHeapTest])

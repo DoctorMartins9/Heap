@@ -1,6 +1,6 @@
 #pragma once
 
-namespace heap{
+namespace hp{
 
     template<typename T>
     class Node{

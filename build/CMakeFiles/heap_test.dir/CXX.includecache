@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/heap.hpp
+node.hpp
+../include/node.hpp
+impl/heap.i.hpp
+-
+
+../include/impl/heap.i.hpp
+
+../include/impl/max_heap.i.hpp
+
+../include/impl/node.i.hpp
+vector
+-
+iostream
+-
+
+../include/max_heap.hpp
+heap.hpp
+../include/heap.hpp
+impl/max_heap.i.hpp
+-
+
+../include/node.hpp
+impl/node.i.hpp
+../include/impl/node.i.hpp
+
+/home/emartini/Documenti/Heap/tests/test.cpp
+max_heap.hpp
+/home/emartini/Documenti/Heap/tests/max_heap.hpp
+catch.hpp
+-
+iostream
+-
+iomanip
+-
+

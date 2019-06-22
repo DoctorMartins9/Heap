@@ -1,7 +1,7 @@
 #pragma once
 #include "node.hpp"
 
-namespace heap{
+namespace hp{
 // Parent abstract class
     template<typename T>
     class Heap {

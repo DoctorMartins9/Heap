@@ -1,8 +1,10 @@
-
-
 #include <vector>
 #include <iostream>
+#include <chrono>
+
 #include "max_heap.hpp"
+
+#define DIM 10000
 
 int main(){
 
@@ -11,71 +13,42 @@ int main(){
 
     std::vector<int> heap;
 
-    for(int i = 0; i < 10 ; i++)
-        heap.push_back(10.0 / (i+1) ); 
+    for(int i = 0; i < DIM ; i++)
+        heap.push_back( i ); 
 
+    auto start = std::chrono::system_clock::now();
+    hp::MaxHeap<int>::heapSort(heap);
+    auto end = std::chrono::system_clock::now();
 
-    for(int i =  0; i < heap.size(); i++){
-        std::cout << heap[i] << " ";
-    }
-    std::cout << std::endl;
-   
-    //heap::MaxHeap mc = heap::MaxHeap(heap);
-    heap::MaxHeap<int>::heapSort(heap);
-    //heap::MaxHeap my_heap;
+    std::chrono::duration<double> diff = end - start;
 
-    for(int i =  0; i < heap.size(); i++){
-        std::cout << heap[i] << " ";
-    }
-    std::cout << std::endl;
+    std::cout << "Time elapsed: " << diff.count() << " seconds" << std::endl;
 
+/*
 
     // floating point test ----------------------------------------------------
     std::cout << std::endl << "Float heap-sort test" << std::endl << std::endl;
 
     std::vector<float> heap_f;
 
-    for(int i = 0; i < 10 ; i++)
-        heap_f.push_back(10.0 / (i+1) ); 
+    for(int i = 0; i < DIM ; i++)
+        heap_f.push_back(static_cast<float>(DIM) / (i+1) ); 
 
 
-    for(int i =  0; i < heap.size(); i++){
-        std::cout << heap_f[i] << " ";
-    }
-    std::cout << std::endl;
-   
-    //heap::MaxHeap mc = heap::MaxHeap(heap);
     heap::MaxHeap<float>::heapSort(heap_f);
-    //heap::MaxHeap my_heap;
-
-    for(int i =  0; i < heap_f.size(); i++){
-        std::cout << heap_f[i] << " ";
-    }
-    std::cout << std::endl;
-
-    // floating point test ----------------------------------------------------
-    std::cout << std::endl << "Char heap-sort test" << std::endl << std::endl;
-
-    std::vector<char> heap_c;
-
-    for(int i = 0; i < 10 ; i++)
-        heap_c.push_back(static_cast<char>(i+40)); 
 
 
-    for(int i =  0; i < heap.size(); i++){
-        std::cout << heap_c[i] << " ";
-    }
-    std::cout << std::endl;
-   
-    //heap::MaxHeap mc = heap::MaxHeap(heap);
-    //heap::MaxHeap<char>::heapSort(heap_f);
-    //heap::MaxHeap my_heap;
+    // double test ----------------------------------------------------
 
-    for(int i =  0; i < heap_c.size(); i++){
-        std::cout << heap_c[i] << " ";
-    }
+    std::cout << std::endl << "Double heap-sort test" << std::endl << std::endl;
+    std::vector<double> heap_d;
 
-    std::cout << std::endl;
+    for(int i = 0; i < DIM ; i++)
+        heap_d.push_back(static_cast<double>(DIM) / (i+1) ); 
+
+    heap::MaxHeap<double>::heapSort(heap_d);
+
+*/
 
     return 0;
 }
