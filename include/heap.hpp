@@ -41,8 +41,8 @@
 namespace hp{
 
     /**
-    *   @brief
-    *   @tparam T
+    *   @brief      Abstract parent class for generic heap.
+    *   @tparam T   supports multiple types of numeric data.
     * 
      */
     template<typename T>
@@ -50,85 +50,77 @@ namespace hp{
 
     protected:
 
-        std::vector<Node<T>> heap;     // Vector of elements    
+        std::vector<Node<T>> heap;  // Vector of elements    
 
         /**
-         * @brief
-         * @param[in] heap
-         * @param[in] n
-         * @param[in] i
+         * @brief               virtual recursive method for building the max-heap.
+         * @param[in] heap      input vector reference to order.
+         * @param[in] n         number of elements in vector.
+         * @param[in] i         index of largest value.
          */
         virtual void heapify(std::vector<Node<T>> &heap, uint64_t n, uint64_t i) = 0;
 
     public:
 
         /**
-         * @brief
-         * @param[in] input
+         * @brief               constructor from unordered vector to unordered heap.          
+         * @param[in] input     initial unordered vector.
          */
-        Heap (std::vector<T> input);
+        Heap (std::vector<T>& input);
 
         /**
-         * @brief
-         * @param[in] n
+         * @brief               add an element to heap.
+         * @param[in] n         element to add to heap.
          */
         void addElement(T n);
 
         /*
-         * @brief
-         * @param[in] index
+         * @brief               erase a value by its index.
+         * @param[in] index     index of value to erase.
          */
-        void erase(uint64_t index);
+        virtual void erase(uint64_t index) = 0;
 
         /**
-         * @brief
-         * @param[in] value
+         * @brief               erase value/values.
+         * @param[in] value     value of the element/elements to erase.
          */
-        void eraseByValue(T value);
+        virtual void eraseByValue(T value) = 0;
 
         /**
-         * @brief
-         * @param[in] vec
+         * @brief               add an unordered vector to heap.
+         * @param[in] vec       unordered vector to add to heap.       
          */
-        void addVector(std::vector<T> &vec);
-
+        virtual void addVector(std::vector<T> &vec) = 0;
+            
         /**
-         * @brief
-         * @param[in] vector
-         */
-        void addHeap(Heap<T> &vector);
-     
-        
-        
-        /**
-         * @brief
-         * @return
+         * @brief               number of the elements in heap.
+         * @return              return the size of the heap.
          */
         uint64_t size();
 
         /**
-         * @brief
-         * @return
+         * @brief               ordered vector of data from heap.
+         * @return              return the ordered vector.
          */
         std::vector<T> getVector();
 
         /**
-         * @brief
-         * @param[in] stream
-         * @param[in] hp
-         * @return
+         * @brief               override of the << operator, useful for std::cout.
+         * @param[in] stream    output stream.
+         * @param[in] hp        heap to print.
+         * @return              return the output stream for std::cout.
          */
         template<typename U>
         friend std::ostream& operator<<(std::ostream& stream, Heap<U>& hp);
         
         /**
-         * @brief
-         * @param[in] n
-         * @return
+         * @brief               access to element by index
+         * @param[in] n         index of element
+         * @return              return the element at the input index.
          */
-        T operator[](T n);
+        T operator[](uint64_t n);
 
     };
-} // namespace 'heap'Node
+} // namespace 'hp'
 
 #include <impl/heap.i.hpp>

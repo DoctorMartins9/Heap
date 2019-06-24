@@ -1,1 +1,1 @@
-/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/heap_test.dir/tests/test.cpp.o  -o heap_test libhp.a 
+/usr/bin/c++  -g   CMakeFiles/heap_test.dir/tests/test.cpp.o  -o heap_test libhp.a 

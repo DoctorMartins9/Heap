@@ -9,8 +9,8 @@ namespace hp{
 
     // Constructors
     template<typename T>
-    Heap<T>::Heap (std::vector<T> input) {
-        
+    Heap<T>::Heap (std::vector<T>& input) {
+         
         for(uint64_t i = 0; i < input.size(); i++)
             addElement(input[i]);
     }
@@ -51,9 +51,9 @@ namespace hp{
     }
 
     template<typename T>
-    T Heap<T>::operator[](T n){
+    T Heap<T>::operator[](uint64_t n){
         
         return heap[n].getValue(); 
     }
 
-} // namespace 'heap'Node
+} // namespace 'hp'

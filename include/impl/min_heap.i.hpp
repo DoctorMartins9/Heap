@@ -4,35 +4,34 @@ namespace hp {
     template<typename T>
     void MinHeap<T>::heapify(std::vector<Node<T>> &heap, uint64_t n, uint64_t i) {
         
-        uint64_t smallest = i;
+        uint64_t smallest = i; 
         uint64_t l = 2*i + 1; 
-        uint64_t r = 2*i + 2; 
-        
-
-        if (l < n && heap[l].getValue() < heap[i].getValue() ) 
+        uint64_t r = 2*i + 2;
+    
+        if (l < n && heap[l].getValue() < heap[smallest].getValue()) 
             smallest = l; 
-
-        if (r < n && heap[r].getValue() < heap[smallest].getValue() ) 
-            smallest = r; 
+    
+        if (r < n && heap[r].getValue() < heap[smallest].getValue()) 
+            smallest = r;
 
         if (smallest != i) { 
             Node<T> temp = heap[i];
             heap[i] = heap[smallest];
             heap[smallest] = temp;
-
-            heapify(heap, n ,smallest);  
-        }     
-    }      
+            
+            heapify(heap, n, smallest); 
+        } 
+    }
 
     template<typename T>
     void MinHeap<T>::minHeapify(){
-
-        for (uint64_t i = ( size() / 2 ) - 1 ; i >= 0 ; i--)
+        for (int i = ( size() / 2 ) - 1 ; i >= 0 ; i--)
             heapify(heap , size() , i);
     }
+
     
     template<typename T>
-    MinHeap<T>::MinHeap(std::vector<T> input) : Heap<T>(input) {
+    MinHeap<T>::MinHeap(std::vector<T>& input) : Heap<T>(input) {
         minHeapify();
     }
 
@@ -79,5 +78,4 @@ namespace hp {
         return MinHeap(s);
     }
         
-}   // namespace 'heap'
-
+}   // namespace 'hp'

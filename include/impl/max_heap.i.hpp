@@ -23,7 +23,6 @@ namespace hp {
         } 
     }
 
-    // Build the tree
     template<typename T>
     void MaxHeap<T>::maxHeapify(){
         
@@ -49,7 +48,7 @@ namespace hp {
     } 
     
     template<typename T>
-    MaxHeap<T>::MaxHeap(std::vector<T> input) : Heap<T>(input) {
+    MaxHeap<T>::MaxHeap(std::vector<T>& input) : Heap<T>(input) {
         maxHeapify();
     }
 
@@ -68,7 +67,6 @@ namespace hp {
 
     template<typename T>
     void MaxHeap<T>::eraseByValue(T value) {
-
         for(uint64_t i = 0 ; i < size() ; i++)
             if(heap[i].getValue() == value ){
                 heap.erase(heap.begin() + i);
@@ -78,39 +76,18 @@ namespace hp {
     }
 
     template<typename T>
-    void MaxHeap<T>::addVector(std::vector<T> &vec) {
-        
+    void MaxHeap<T>::addVector(std::vector<T> &vec) {    
         for(uint64_t i = 0; i < vec.size() ; i++ )
             addElement(vec[i]);
         
     }
 
     template<typename T>
-    void MaxHeap<T>::addHeap(Heap<T> &vector) {
-        // TODO
-    }
-
-    template<typename T>
     MaxHeap<T> MaxHeap<T>::operator+(Heap<T> &input) {
         auto s = input.getVector();
         auto p = getVector();
-
         s.insert(s.end(), p.begin(), p.end());
-
-
         return MaxHeap(s);
     }
 
-        // Virtual cannot implement template !!
-        /*
-        template<typename T>
-        void erase(uint64_t index){}
-        template<typename T>
-        void eraseByValue(T value){}
-        template<typename T>
-        void addVector(std::vector<T> &vec){}
-        template<typename T>
-        void addHeap(Heap<T> &vector){}
-         */
-}   // namespace 'heap'Node
-
+}   // namespace 'hp'

@@ -41,8 +41,8 @@
 namespace hp{ 
 
     /**
-    *   @brief
-    *   @tparam T
+    *   @brief      Min heap class.
+    *   @tparam T   supports multiple types of numeric data.
     * 
      */
     template<typename T>
@@ -51,15 +51,15 @@ namespace hp{
     private:  
 
         /**
-         * @brief
-         * @param[in] heap
-         * @param[in] n
-         * @param[in] i
+         * @brief               private recursive method for building the min-heap.
+         * @param[in] heap      input vector reference to order.
+         * @param[in] n         number of element in vector.
+         * @param[in] i         index of largest value.
          */
         void heapify(std::vector<Node<T>> &heap, uint64_t n, uint64_t i) override;
 
         /**
-         * @brief
+         * @brief               private method that calls heapify for building the min-heap
          */
         void minHeapify();
 
@@ -72,40 +72,39 @@ namespace hp{
         using Heap<T>::getVector;
 
         /**
-         * @brief
-         * @param[in] input
+         * @brief               constructor from unordered vector to heap.
+         * @param[in] input     initial unordered vector.
          */
-        MinHeap(std::vector<T> input);
+        MinHeap(std::vector<T>& input);
 
         /**
-         * @brief
-         * @param[in] n
+         * @brief               add an element to heap (not a node).
+         * @param[in] n         value to insert into heap.
          */
         void addElement(T n);
 
         /**
-         * @brief
-         * @param[in] index
+         * @brief               erase the element at the given index.
+         * @param[in] index     index of element to erase.
          */
         void erase(uint64_t index);
 
         /**
-         * @brief
-         * @param[in] value
+         * @brief               erase value (or values) equal to input value.
+         * @param[in] value     value to erase.
          */
         void eraseByValue(T value);
 
         /**
-         * @brief
-         * @param[in] vec
+         * @brief               add a vector to heap.
+         * @param[in] vec       unordered vector to add to heap.
          */
         void addVector(std::vector<T> &vec);
 
-
         /**
-         * @brief
-         * @param[in] input
-         * @return
+         * @brief               override of the + operation.
+         * @param[in] input     input heap to sum.
+         * @return              return the resulting heap.
          */
         MinHeap operator+(Heap<T> &input);
 

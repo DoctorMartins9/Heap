@@ -41,8 +41,8 @@
 namespace hp{ 
 
     /**
-    *   @brief
-    *   @tparam T
+    *   @brief      Max heap class.
+    *   @tparam T   supports multiple types of numeric data.
     * 
      */
     template<typename T>
@@ -52,16 +52,16 @@ namespace hp{
     private:  
 
         /**
-         * @brief
-         * @param[in] heap
-         * @param[in] n
-         * @param[in] i
+         * @brief           private recursive method for building the max-heap.
+         * @param[in] heap  input vector reference to order.
+         * @param[in] n     number of elements in vector.
+         * @param[in] i     index of largest value.
          */
         void heapify(std::vector<Node<T>> &heap, uint64_t n, uint64_t i) override;
 
 
         /**
-         * @brief
+         * @brief   private method that calls heapify for building the max-heap.
          */
         void maxHeapify();
 
@@ -73,52 +73,46 @@ namespace hp{
         using Heap<T>::getVector;
 
         /**
-         * @brief
-         * @param[in] input
+         * @brief               constructor from unordered vector to heap.
+         * @param[in] input     initial unordered vector.
          */
-        MaxHeap(std::vector<T> input);
+        MaxHeap(std::vector<T> &input);
 
         /**
-         * @brief
-         * @param[in] vec
+         * @brief           static method for complete ordering a vector.
+         * @param[in] vec   initial unoirdered vector.
          */
         static void heapSort(std::vector<T> &vec);
         
 
         /**
-         * @brief
-         * @param[in] n
+         * @brief           add an element to heap (not a node).
+         * @param[in] n     value to insert into heap.
          */
         void addElement(T n);
 
         /**
-         * @brief
-         * @param[in] index
+         * @brief               erase the element at the given index.
+         * @param[in] index     index of element to erase.
          */
         void erase(uint64_t index);
 
         /**
-         * @brief
-         * @param[in] value
+         * @brief               erase value (or values) equal to input value.
+         * @param[in] value     value to erase.
          */
         void eraseByValue(T value);
 
         /**
-         * @brief
-         * @param[in] vec
+         * @brief               add a vector to heap.
+         * @param[in] vec       unordered vector to add to heap.
          */
         void addVector(std::vector<T> &vec);
 
         /**
-         * @brief
-         * @param[in] vector
-         */
-        void addHeap(Heap<T> &vector);
-
-        /**
-         * @brief
-         * @param[in] input
-         * @return
+         * @brief               override of the + operation.
+         * @param[in] input     input heap to sum.
+         * @return              return the resulting heap.
          */
         MaxHeap operator+(Heap<T> &input);
 

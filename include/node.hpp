@@ -39,8 +39,8 @@
 namespace hp{
 
     /**
-    *   @brief
-    *   @tparam T
+    *   @brief      Node useful for complex data structures like heap.
+    *   @tparam T   supports multiple type of numeric data.
     * 
      */    
     template<typename T>
@@ -50,38 +50,38 @@ namespace hp{
         T value;
 
         /**
-         * @brief
-         * @param[in] input
+         * @brief               set the value that the node contains.
+         * @param[in] input     value to set.
          */    
         void setValue(T input);
 
     public:
 
         /**
-         * @brief
+         * @brief   default constructor.
          */
         Node();
 
         /**
-         * @brief
-         * @param[in] i
+         * @brief           constructor given a value to contain.       
+         * @param[in] i     value that the node will contain.
          */        
         Node(T i);
 
         /**
-         * @brief
-         * @param[in] n
-         * @return 
+         * @brief           override of the = operator for assignments.
+         * @param[in] n     node to assign.
+         * @return          Node with value given in node input.
          */
         Node operator= (Node n);
 
         /**
-         * @brief
-         * @return
+         * @brief           get the value contained into the node.
+         * @return          return the value of the node.
          */
         T getValue();
 
     };
-}   // namespace 'heap'Node
+}   // namespace 'hp'
 
 #include "impl/node.i.hpp"

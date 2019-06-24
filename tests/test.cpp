@@ -176,17 +176,20 @@ TEST_CASE("Double Heap Test (MaxHeap)" , "[DoubleHeapTestMax]"){
     REQUIRE( isMaxRoot(heap) );
 }
 
-// All methods test
+
+
 TEST_CASE("Integer Heap Test (MinHeap)" , "[IntHeapTestMin]"){
-    
+  
     using T = int;
     
     std::vector<T> vec = {2, 4 , 234, 54,23, 3423, 324 , 34, 32,3};
+
     const int SIZE = vec.size();
+
 
     // Constructor
     hp::MinHeap<T> heap = hp::MinHeap<T>(vec);
-    REQUIRE(heap.size() == vec.size() );
+    REQUIRE( heap.size() == SIZE );
 
     // Add element
     heap.addElement(4);
