@@ -57,6 +57,7 @@ CMakeFiles/clean-all:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/emartini/Documenti/Heap/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "scan-build Static Analysis"
 	rm -rf /home/emartini/Documenti/Heap/build/*
 	rm -rf /home/emartini/Documenti/Heap/doc/*
+	rm -rf /home/emartini/Documenti/Heap/bin/*
 
 clean-all: CMakeFiles/clean-all
 clean-all: CMakeFiles/clean-all.dir/build.make

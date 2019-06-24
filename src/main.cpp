@@ -5,7 +5,7 @@
 #include "max_heap.hpp"     // Build max heap   |   hp::MaxHeap, ...
 #include "min_heap.hpp"     // Build min heap   |   hp::MinHeap, ...
 
-#define DIM 9            // Number of nodes
+#define DIM 9999            // Number of nodes
 
 int main(){
 

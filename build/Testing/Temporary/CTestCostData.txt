@@ -1,9 +1,0 @@
-IntHeapMax 1 0.00337982
-FloatHeapTestMax 1 0.00306988
-DoubleHeapTestMax 1 0.00360894
-IntHeapTestMin 1 0.00427294
-ValgrindTest1 1 1.68929
-ValgrindTest2 1 1.62122
-ValgrindTest3 1 1.61939
-ValgrindTest4 1 1.60959
----

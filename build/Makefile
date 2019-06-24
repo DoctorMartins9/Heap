@@ -135,6 +135,19 @@ heap_test/fast:
 .PHONY : heap_test/fast
 
 #=============================================================================
+# Target rules for targets named clean-all
+
+# Build rule for target.
+clean-all: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean-all
+.PHONY : clean-all
+
+# fast build rule for target.
+clean-all/fast:
+	$(MAKE) -f CMakeFiles/clean-all.dir/build.make CMakeFiles/clean-all.dir/build
+.PHONY : clean-all/fast
+
+#=============================================================================
 # Target rules for targets named doc
 
 # Build rule for target.
@@ -148,17 +161,43 @@ doc/fast:
 .PHONY : doc/fast
 
 #=============================================================================
-# Target rules for targets named clean-all
+# Target rules for targets named hp
 
 # Build rule for target.
-clean-all: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 clean-all
-.PHONY : clean-all
+hp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hp
+.PHONY : hp
 
 # fast build rule for target.
-clean-all/fast:
-	$(MAKE) -f CMakeFiles/clean-all.dir/build.make CMakeFiles/clean-all.dir/build
-.PHONY : clean-all/fast
+hp/fast:
+	$(MAKE) -f CMakeFiles/hp.dir/build.make CMakeFiles/hp.dir/build
+.PHONY : hp/fast
+
+#=============================================================================
+# Target rules for targets named release
+
+# Build rule for target.
+release: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 release
+.PHONY : release
+
+# fast build rule for target.
+release/fast:
+	$(MAKE) -f CMakeFiles/release.dir/build.make CMakeFiles/release.dir/build
+.PHONY : release/fast
+
+#=============================================================================
+# Target rules for targets named my_heap
+
+# Build rule for target.
+my_heap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 my_heap
+.PHONY : my_heap
+
+# fast build rule for target.
+my_heap/fast:
+	$(MAKE) -f CMakeFiles/my_heap.dir/build.make CMakeFiles/my_heap.dir/build
+.PHONY : my_heap/fast
 
 #=============================================================================
 # Target rules for targets named tidy
@@ -185,32 +224,6 @@ cyclo: cmake_check_build_system
 cyclo/fast:
 	$(MAKE) -f CMakeFiles/cyclo.dir/build.make CMakeFiles/cyclo.dir/build
 .PHONY : cyclo/fast
-
-#=============================================================================
-# Target rules for targets named hp
-
-# Build rule for target.
-hp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hp
-.PHONY : hp
-
-# fast build rule for target.
-hp/fast:
-	$(MAKE) -f CMakeFiles/hp.dir/build.make CMakeFiles/hp.dir/build
-.PHONY : hp/fast
-
-#=============================================================================
-# Target rules for targets named my_heap
-
-# Build rule for target.
-my_heap: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 my_heap
-.PHONY : my_heap
-
-# fast build rule for target.
-my_heap/fast:
-	$(MAKE) -f CMakeFiles/my_heap.dir/build.make CMakeFiles/my_heap.dir/build
-.PHONY : my_heap/fast
 
 src/main.o: src/main.cpp.o
 
@@ -279,12 +292,13 @@ help:
 	@echo "... test"
 	@echo "... edit_cache"
 	@echo "... heap_test"
-	@echo "... doc"
 	@echo "... clean-all"
+	@echo "... doc"
+	@echo "... hp"
+	@echo "... release"
+	@echo "... my_heap"
 	@echo "... tidy"
 	@echo "... cyclo"
-	@echo "... hp"
-	@echo "... my_heap"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

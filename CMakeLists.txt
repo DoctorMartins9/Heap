@@ -58,9 +58,16 @@ endif()
 
 # CUSTOM TARGETS --------------------------------------------------------------
 
+add_custom_target(release
+                  COMMAND mkdir -p ${PROJECT_SOURCE_DIR}/bin
+                  COMMAND make all
+                  COMMAND cp ${PROJECT_SOURCE_DIR}/build/my_heap ${PROJECT_SOURCE_DIR}/bin/
+                  COMMENT "The example file is aviable in bin directory")
+
 add_custom_target(clean-all
                   COMMAND rm -rf ${PROJECT_SOURCE_DIR}/build/*
                   COMMAND rm -rf ${PROJECT_SOURCE_DIR}/doc/*
+                  COMMAND rm -rf ${PROJECT_SOURCE_DIR}/bin/*
                   COMMENT "scan-build Static Analysis")
 
 find_program(DOXYGEN_FOUND doxygen)
