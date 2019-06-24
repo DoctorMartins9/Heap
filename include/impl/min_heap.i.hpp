@@ -5,23 +5,22 @@ namespace hp {
     template<typename T>
     void MinHeap<T>::heapify(std::vector<Node<T>> &heap, uint64_t n, int i) {
         
-        int largest = i; 
+        int smallest = i; 
         int l = 2*i + 1; 
         int r = 2*i + 2;
     
-        if (l < n && heap[l].getValue() > heap[largest].getValue()) 
-            largest = l; 
+        if (l > n && heap[l].getValue() < heap[smallest].getValue()) 
+            smallest = l; 
     
-        if (r < n && heap[r].getValue() > heap[largest].getValue()) 
-            largest = r;
+        if (r > n && heap[r].getValue() > heap[smallest].getValue()) 
+            smallest = r;
 
-        if (largest != i) 
-        { 
+        if (smallest != i) { 
             Node<T> temp = heap[i];
-            heap[i] = heap[largest];
-            heap[largest] = temp;
+            heap[i] = heap[smallest];
+            heap[smallest] = temp;
             
-            heapify(heap, n, largest); 
+            heapify(heap, n, smallest); 
         } 
     }
 
@@ -36,18 +35,19 @@ namespace hp {
 
     template<typename T>
     void MinHeap<T>::heapSort(std::vector<T> &vec){ 
+        
         std::vector<T> res;
         uint64_t size = vec.size();
         res.reserve(size);
+        
         MinHeap mh = MinHeap(vec);
-        for(uint64_t i = 0; i < size; i++){
-            
-            res.insert(res.end() -i, mh[0]);
+        
+        for(uint64_t i = 0; i < size; i++){    
+            res[i] = mh[0];
             mh.erase(0);
         }
 
         vec = res; 
-
     } 
     
     template<typename T>

@@ -4,8 +4,10 @@
 CMakeFiles/hp.dir/src/main.cpp.o: ../include/heap.hpp
 CMakeFiles/hp.dir/src/main.cpp.o: ../include/impl/heap.i.hpp
 CMakeFiles/hp.dir/src/main.cpp.o: ../include/impl/max_heap.i.hpp
+CMakeFiles/hp.dir/src/main.cpp.o: ../include/impl/min_heap.i.hpp
 CMakeFiles/hp.dir/src/main.cpp.o: ../include/impl/node.i.hpp
 CMakeFiles/hp.dir/src/main.cpp.o: ../include/max_heap.hpp
+CMakeFiles/hp.dir/src/main.cpp.o: ../include/min_heap.hpp
 CMakeFiles/hp.dir/src/main.cpp.o: ../include/node.hpp
 CMakeFiles/hp.dir/src/main.cpp.o: ../src/main.cpp
 

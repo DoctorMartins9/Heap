@@ -1,4 +1,10 @@
-IntHeapTest 1 0.00279307
-FloatHeapTest 1 0.00342107
-DoubleHeapTest 1 0.00322008
+IntHeapTestMax 0 0
+FloatHeapTestMax 0 0
+DoubleHeapTestMax 0 0
+IntHeapTestMin 0 0
+IntHeapMax 0 0
 ---
+IntHeapMax
+FloatHeapTestMax
+DoubleHeapTestMax
+IntHeapTestMin

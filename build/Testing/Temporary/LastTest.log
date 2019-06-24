@@ -1,57 +1,87 @@
-Start testing: Jun 24 11:10 CEST
+Start testing: Jun 24 12:17 CEST
 ----------------------------------------------------------
-1/3 Testing: IntHeapTest
-1/3 Test: IntHeapTest
-Command: "/home/emartini/Documenti/Heap/build/heap_test" "[IntHeapTest]"
+1/4 Testing: IntHeapMax
+1/4 Test: IntHeapMax
+Command: "/home/emartini/Documenti/Heap/build/heap_test" "[IntHeapMax]"
 Directory: /home/emartini/Documenti/Heap/build
-"IntHeapTest" start time: Jun 24 11:10 CEST
+"IntHeapMax" start time: Jun 24 12:17 CEST
 Output:
 ----------------------------------------------------------
 ===============================================================================
-All tests passed (2 assertions in 1 test case)
+No tests ran
 
+error: TEST_CASE( "Integer Heapsort Test" ) already defined.
+	First seen at /home/emartini/Documenti/Heap/tests/test.cpp:32
+	Redefined at /home/emartini/Documenti/Heap/tests/test.cpp:97
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
-Test Passed.
-"IntHeapTest" end time: Jun 24 11:10 CEST
-"IntHeapTest" time elapsed: 00:00:00
+Test Failed.
+"IntHeapMax" end time: Jun 24 12:17 CEST
+"IntHeapMax" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/3 Testing: FloatHeapTest
-2/3 Test: FloatHeapTest
-Command: "/home/emartini/Documenti/Heap/build/heap_test" "[FloatHeapTest]"
+2/4 Testing: FloatHeapTestMax
+2/4 Test: FloatHeapTestMax
+Command: "/home/emartini/Documenti/Heap/build/heap_test" "[FloatHeapTestMax]"
 Directory: /home/emartini/Documenti/Heap/build
-"FloatHeapTest" start time: Jun 24 11:10 CEST
+"FloatHeapTestMax" start time: Jun 24 12:17 CEST
 Output:
 ----------------------------------------------------------
 ===============================================================================
-All tests passed (2 assertions in 1 test case)
+No tests ran
 
+error: TEST_CASE( "Integer Heapsort Test" ) already defined.
+	First seen at /home/emartini/Documenti/Heap/tests/test.cpp:32
+	Redefined at /home/emartini/Documenti/Heap/tests/test.cpp:97
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
-Test Passed.
-"FloatHeapTest" end time: Jun 24 11:10 CEST
-"FloatHeapTest" time elapsed: 00:00:00
+Test Failed.
+"FloatHeapTestMax" end time: Jun 24 12:17 CEST
+"FloatHeapTestMax" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-3/3 Testing: DoubleHeapTest
-3/3 Test: DoubleHeapTest
-Command: "/home/emartini/Documenti/Heap/build/heap_test" "[DoubleHeapTest]"
+3/4 Testing: DoubleHeapTestMax
+3/4 Test: DoubleHeapTestMax
+Command: "/home/emartini/Documenti/Heap/build/heap_test" "[DoubleHeapTestMax]"
 Directory: /home/emartini/Documenti/Heap/build
-"DoubleHeapTest" start time: Jun 24 11:10 CEST
+"DoubleHeapTestMax" start time: Jun 24 12:17 CEST
 Output:
 ----------------------------------------------------------
 ===============================================================================
-All tests passed (2 assertions in 1 test case)
+No tests ran
 
+error: TEST_CASE( "Integer Heapsort Test" ) already defined.
+	First seen at /home/emartini/Documenti/Heap/tests/test.cpp:32
+	Redefined at /home/emartini/Documenti/Heap/tests/test.cpp:97
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
-Test Passed.
-"DoubleHeapTest" end time: Jun 24 11:10 CEST
-"DoubleHeapTest" time elapsed: 00:00:00
+Test Failed.
+"DoubleHeapTestMax" end time: Jun 24 12:17 CEST
+"DoubleHeapTestMax" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 24 11:10 CEST
+4/4 Testing: IntHeapTestMin
+4/4 Test: IntHeapTestMin
+Command: "/home/emartini/Documenti/Heap/build/heap_test" "[IntHeapTestMin]"
+Directory: /home/emartini/Documenti/Heap/build
+"IntHeapTestMin" start time: Jun 24 12:17 CEST
+Output:
+----------------------------------------------------------
+===============================================================================
+No tests ran
+
+error: TEST_CASE( "Integer Heapsort Test" ) already defined.
+	First seen at /home/emartini/Documenti/Heap/tests/test.cpp:32
+	Redefined at /home/emartini/Documenti/Heap/tests/test.cpp:97
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"IntHeapTestMin" end time: Jun 24 12:17 CEST
+"IntHeapTestMin" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 24 12:17 CEST

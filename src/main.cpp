@@ -1,19 +1,21 @@
-#include <vector>
-#include <iostream>
-#include <chrono>
+#include <vector>           // vector utils     |   std::vector , ...
+#include <iostream>         // I/O operations   |   std::cout , ...
+#include <chrono>           // time keeping     |   std::chrono, ... 
 
-#include "max_heap.hpp"
+#include "max_heap.hpp"     // Build max heap   |   hp::MaxHeap, ...
+#include "min_heap.hpp"     // Build min heap   |   hp::MinHeap, ...
 
-#define DIM 10000
+#define DIM 9999              // Number of nodes
 
 int main(){
 
-    // Integer test ---------------------------------------------------- 
-    std::cout << std::endl << "Integer heap-sort test" << std::endl << std::endl;
+    // Max Heap ---------------------------------------------------------------------
+
+    std::cout << std::endl << "Integer heap-sort test (MaxHeap)" << std::endl << std::endl;
 
     std::vector<int> heap;
 
-    for(int i = 0; i < DIM ; i++)
+    for(uint64_t i = 0; i < DIM ; i++)
         heap.push_back( i ); 
 
     auto start = std::chrono::system_clock::now();
@@ -22,33 +24,28 @@ int main(){
 
     std::chrono::duration<double> diff = end - start;
 
-    std::cout << "Time elapsed: " << diff.count() << " seconds" << std::endl;
-
-/*
-
-    // floating point test ----------------------------------------------------
-    std::cout << std::endl << "Float heap-sort test" << std::endl << std::endl;
-
-    std::vector<float> heap_f;
-
-    for(int i = 0; i < DIM ; i++)
-        heap_f.push_back(static_cast<float>(DIM) / (i+1) ); 
+    std::cout << "Time elapsed: " << diff.count() << " seconds" << std::endl << std::endl;
+    std::cout << "****************************************************" << std::endl;
 
 
-    heap::MaxHeap<float>::heapSort(heap_f);
 
+    // Min Heap ---------------------------------------------------------------------
 
-    // double test ----------------------------------------------------
+    std::cout << std::endl << "Integer heap-sort test (MinHeap)" << std::endl << std::endl;
 
-    std::cout << std::endl << "Double heap-sort test" << std::endl << std::endl;
-    std::vector<double> heap_d;
+    std::vector<int> min_heap;
 
-    for(int i = 0; i < DIM ; i++)
-        heap_d.push_back(static_cast<double>(DIM) / (i+1) ); 
+    for(uint64_t i = 0 ; i < DIM ; i++)
+        min_heap.push_back(DIM - i); 
+    
+    start = std::chrono::system_clock::now();
+    hp::MinHeap<int>::heapSort(min_heap);
+    end = std::chrono::system_clock::now();
 
-    heap::MaxHeap<double>::heapSort(heap_d);
+    diff = end - start;
 
-*/
+    std::cout << "Time elapsed: " << diff.count() << " seconds" << std::endl << std::endl;
+
 
     return 0;
 }

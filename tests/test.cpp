@@ -17,7 +17,19 @@ bool isIncreasing ( std::vector<T> vec){
     return true;
 }
 
-TEST_CASE("Integer Heapsort Test" , "[IntHeapTest]"){
+template<typename T>
+bool isDecreasing ( std::vector<T> vec){
+    
+    T prev;
+
+    for(uint i = 1 ; i < vec.size() ; i++)
+        if(vec[i-1] < vec[i] )
+            return false;
+    
+    return true;
+}
+
+TEST_CASE("Integer Heapsort Test" , "[IntHeapMax]"){
     
     using T = int;
     const int SIZE = 10;
@@ -38,7 +50,7 @@ TEST_CASE("Integer Heapsort Test" , "[IntHeapTest]"){
     REQUIRE( isIncreasing(heap) );
 }
 
-TEST_CASE("Float Heapsort Test" , "[FloatHeapTest]"){
+TEST_CASE("Float Heapsort Test" , "[FloatHeapTestMax]"){
     
     using T = float;
     const int SIZE = 10;
@@ -60,7 +72,7 @@ TEST_CASE("Float Heapsort Test" , "[FloatHeapTest]"){
 
 }
 
-TEST_CASE("Double Heapsort Test" , "[DoubleHeapTest]"){
+TEST_CASE("Double Heapsort Test" , "[DoubleHeapTestMax]"){
     
     using T = double;
     const int SIZE = 10;
@@ -80,4 +92,25 @@ TEST_CASE("Double Heapsort Test" , "[DoubleHeapTest]"){
     // Check if is ordered
     REQUIRE( isIncreasing(heap) );
 
+}
+
+TEST_CASE("Integer Heapsort Test" , "[IntHeapTestMin]"){
+    
+    using T = int;
+    const int SIZE = 10;
+
+    // Build and populate unordered vector
+    std::vector<T> heap;
+
+    for(int i = 0; i < SIZE ; i++)
+        heap.push_back( i );
+
+    // Sorting 
+    hp::MinHeap<T>::heapSort(heap);
+    
+    // Check values lost
+    REQUIRE( heap.size() == SIZE  );
+
+    // Check if is ordered
+    REQUIRE( isDecreasing(heap) );
 }

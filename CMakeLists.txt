@@ -52,14 +52,18 @@ target_link_libraries(heap_test hp)
 
 enable_testing()
 
-add_test(NAME IntHeapTest
+add_test(NAME IntHeapMax
          WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build
-         COMMAND ./heap_test [IntHeapTest])
+         COMMAND ./heap_test [IntHeapMax])
 
-add_test(NAME FloatHeapTest
+add_test(NAME FloatHeapTestMax
 WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build
-COMMAND ./heap_test [FloatHeapTest])
+COMMAND ./heap_test [FloatHeapTestMax])
 
-add_test(NAME DoubleHeapTest
+add_test(NAME DoubleHeapTestMax
 WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build
-COMMAND ./heap_test [DoubleHeapTest])
+COMMAND ./heap_test [DoubleHeapTestMax])
+
+add_test(NAME IntHeapTestMin
+         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build
+         COMMAND ./heap_test [IntHeapTestMin])
