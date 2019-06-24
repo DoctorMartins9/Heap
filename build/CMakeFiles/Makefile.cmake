@@ -38,8 +38,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/doc.dir/DependInfo.cmake"
+  "CMakeFiles/clean-all.dir/DependInfo.cmake"
   "CMakeFiles/my_heap.dir/DependInfo.cmake"
   "CMakeFiles/heap_test.dir/DependInfo.cmake"
-  "CMakeFiles/clean-all.dir/DependInfo.cmake"
   "CMakeFiles/hp.dir/DependInfo.cmake"
   )

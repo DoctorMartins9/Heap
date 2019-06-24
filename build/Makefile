@@ -122,6 +122,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named doc
+
+# Build rule for target.
+doc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 doc
+.PHONY : doc
+
+# fast build rule for target.
+doc/fast:
+	$(MAKE) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/build
+.PHONY : doc/fast
+
+#=============================================================================
+# Target rules for targets named clean-all
+
+# Build rule for target.
+clean-all: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean-all
+.PHONY : clean-all
+
+# fast build rule for target.
+clean-all/fast:
+	$(MAKE) -f CMakeFiles/clean-all.dir/build.make CMakeFiles/clean-all.dir/build
+.PHONY : clean-all/fast
+
+#=============================================================================
 # Target rules for targets named my_heap
 
 # Build rule for target.
@@ -146,19 +172,6 @@ heap_test: cmake_check_build_system
 heap_test/fast:
 	$(MAKE) -f CMakeFiles/heap_test.dir/build.make CMakeFiles/heap_test.dir/build
 .PHONY : heap_test/fast
-
-#=============================================================================
-# Target rules for targets named clean-all
-
-# Build rule for target.
-clean-all: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 clean-all
-.PHONY : clean-all
-
-# fast build rule for target.
-clean-all/fast:
-	$(MAKE) -f CMakeFiles/clean-all.dir/build.make CMakeFiles/clean-all.dir/build
-.PHONY : clean-all/fast
 
 #=============================================================================
 # Target rules for targets named hp
@@ -237,10 +250,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... my_heap"
-	@echo "... heap_test"
-	@echo "... edit_cache"
+	@echo "... doc"
 	@echo "... clean-all"
+	@echo "... my_heap"
+	@echo "... edit_cache"
+	@echo "... heap_test"
 	@echo "... hp"
 	@echo "... test"
 	@echo "... src/main.o"

@@ -1,7 +1,4 @@
-IntHeapTest 0 0
-FloatHeapTest 0 0
-DoubleHeapTest 0 0
+IntHeapTest 11 0.000313369
+FloatHeapTest 12 0.000276923
+DoubleHeapTest 12 0.000321249
 ---
-IntHeapTest
-FloatHeapTest
-DoubleHeapTest

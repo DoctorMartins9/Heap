@@ -8,4 +8,5 @@ CMakeFiles/heap_test.dir/tests/test.cpp.o
  ../include/impl/node.i.hpp
  ../include/max_heap.hpp
  ../include/node.hpp
+ ../lib/catch.hpp
  /home/emartini/Documenti/Heap/tests/test.cpp

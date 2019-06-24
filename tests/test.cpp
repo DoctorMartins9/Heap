@@ -3,9 +3,18 @@
 # define CATCH_CONFIG_MAIN
 # include "catch.hpp"
 #undef CATCH_CONFIG_MAIN
+  
+template<typename T>
+bool isIncreasing ( std::vector<T> vec){
+    
+    T prev;
 
-#include <iostream>
-#include <iomanip>
+    for(uint i = 1 ; i < vec.size() ; i++)
+        if(vec[i-1] > vec[i] )
+            return false;
+    
+    return true;
+}
 
 TEST_CASE("Integer Heapsort Test" , "[IntHeapTest]"){
     
@@ -21,8 +30,11 @@ TEST_CASE("Integer Heapsort Test" , "[IntHeapTest]"){
     // Sorting 
     hp::MaxHeap<T>::heapSort(heap);
     
-    REQUIRE(1 == 1);
+    // Check values lost
+    REQUIRE( heap.size() == SIZE  );
 
+    // Check if is ordered
+    REQUIRE( isIncreasing(heap) );
 }
 
 TEST_CASE("Float Heapsort Test" , "[FloatHeapTest]"){
@@ -39,7 +51,11 @@ TEST_CASE("Float Heapsort Test" , "[FloatHeapTest]"){
     // Sorting 
     hp::MaxHeap<T>::heapSort(heap);
     
-    REQUIRE(1 == 1);
+    // Check values lost
+    REQUIRE( heap.size() == SIZE  );
+
+    // Check if is ordered
+    REQUIRE( isIncreasing(heap) );
 
 }
 
@@ -57,6 +73,10 @@ TEST_CASE("Double Heapsort Test" , "[DoubleHeapTest]"){
     // Sorting 
     hp::MaxHeap<T>::heapSort(heap);
     
-    REQUIRE(1 == 1);
+    // Check values lost
+    REQUIRE( heap.size() == SIZE  );
+
+    // Check if is ordered
+    REQUIRE( isIncreasing(heap) );
 
 }
