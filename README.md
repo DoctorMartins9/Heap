@@ -2,7 +2,7 @@
 Heap is a open source library usefull for building an heap, an almost complete binary tree in which each node corresponds to an element of the array.
 
 *Enrico Martini, VR406823 , Modern C++ Programming Course Project*
-*@DoctorMartins9*
+@github/DoctorMartins9
 
 ## Run the example (Release mode)
 For running an example, in build directory type:
