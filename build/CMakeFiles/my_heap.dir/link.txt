@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/my_heap.dir/src/main.cpp.o  -o my_heap 
+/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/my_heap.dir/src/main.cpp.o  -o my_heap 

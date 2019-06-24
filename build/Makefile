@@ -67,17 +67,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -88,6 +77,17 @@ test:
 test/fast: test
 
 .PHONY : test/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -122,6 +122,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named heap_test
+
+# Build rule for target.
+heap_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 heap_test
+.PHONY : heap_test
+
+# fast build rule for target.
+heap_test/fast:
+	$(MAKE) -f CMakeFiles/heap_test.dir/build.make CMakeFiles/heap_test.dir/build
+.PHONY : heap_test/fast
+
+#=============================================================================
 # Target rules for targets named doc
 
 # Build rule for target.
@@ -148,30 +161,30 @@ clean-all/fast:
 .PHONY : clean-all/fast
 
 #=============================================================================
-# Target rules for targets named my_heap
+# Target rules for targets named tidy
 
 # Build rule for target.
-my_heap: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 my_heap
-.PHONY : my_heap
+tidy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tidy
+.PHONY : tidy
 
 # fast build rule for target.
-my_heap/fast:
-	$(MAKE) -f CMakeFiles/my_heap.dir/build.make CMakeFiles/my_heap.dir/build
-.PHONY : my_heap/fast
+tidy/fast:
+	$(MAKE) -f CMakeFiles/tidy.dir/build.make CMakeFiles/tidy.dir/build
+.PHONY : tidy/fast
 
 #=============================================================================
-# Target rules for targets named heap_test
+# Target rules for targets named cyclo
 
 # Build rule for target.
-heap_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 heap_test
-.PHONY : heap_test
+cyclo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cyclo
+.PHONY : cyclo
 
 # fast build rule for target.
-heap_test/fast:
-	$(MAKE) -f CMakeFiles/heap_test.dir/build.make CMakeFiles/heap_test.dir/build
-.PHONY : heap_test/fast
+cyclo/fast:
+	$(MAKE) -f CMakeFiles/cyclo.dir/build.make CMakeFiles/cyclo.dir/build
+.PHONY : cyclo/fast
 
 #=============================================================================
 # Target rules for targets named hp
@@ -186,14 +199,27 @@ hp/fast:
 	$(MAKE) -f CMakeFiles/hp.dir/build.make CMakeFiles/hp.dir/build
 .PHONY : hp/fast
 
+#=============================================================================
+# Target rules for targets named my_heap
+
+# Build rule for target.
+my_heap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 my_heap
+.PHONY : my_heap
+
+# fast build rule for target.
+my_heap/fast:
+	$(MAKE) -f CMakeFiles/my_heap.dir/build.make CMakeFiles/my_heap.dir/build
+.PHONY : my_heap/fast
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/my_heap.dir/build.make CMakeFiles/my_heap.dir/src/main.cpp.o
 	$(MAKE) -f CMakeFiles/hp.dir/build.make CMakeFiles/hp.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/my_heap.dir/build.make CMakeFiles/my_heap.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -202,8 +228,8 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/my_heap.dir/build.make CMakeFiles/my_heap.dir/src/main.cpp.i
 	$(MAKE) -f CMakeFiles/hp.dir/build.make CMakeFiles/hp.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/my_heap.dir/build.make CMakeFiles/my_heap.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -212,8 +238,8 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/my_heap.dir/build.make CMakeFiles/my_heap.dir/src/main.cpp.s
 	$(MAKE) -f CMakeFiles/hp.dir/build.make CMakeFiles/hp.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/my_heap.dir/build.make CMakeFiles/my_heap.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 tests/test.o: tests/test.cpp.o
@@ -250,13 +276,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... doc"
-	@echo "... clean-all"
-	@echo "... my_heap"
+	@echo "... test"
 	@echo "... edit_cache"
 	@echo "... heap_test"
+	@echo "... doc"
+	@echo "... clean-all"
+	@echo "... tidy"
+	@echo "... cyclo"
 	@echo "... hp"
-	@echo "... test"
+	@echo "... my_heap"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

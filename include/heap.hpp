@@ -58,7 +58,7 @@ namespace hp{
          * @param[in] n
          * @param[in] i
          */
-        virtual void heapify(std::vector<Node<T>> &heap, uint64_t n, int i) = 0;
+        virtual void heapify(std::vector<Node<T>> &heap, uint64_t n, uint64_t i) = 0;
 
     public:
 
@@ -104,7 +104,7 @@ namespace hp{
          * @brief
          * @return
          */
-        uint64_t getElements();
+        uint64_t size();
 
         /**
          * @brief
@@ -118,7 +118,8 @@ namespace hp{
          * @param[in] hp
          * @return
          */
-        friend std::ostream& operator<<(std::ostream& stream, Heap<T>& hp);
+        template<typename U>
+        friend std::ostream& operator<<(std::ostream& stream, Heap<U>& hp);
         
         /**
          * @brief

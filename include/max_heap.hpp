@@ -48,10 +48,6 @@ namespace hp{
     template<typename T>
     class MaxHeap : public Heap<T> {
     
-    using Heap<T>::heap;
-    using Heap<T>::getElements;
-    using Heap<T>::addElement;
-    using Heap<T>::getVector;
 
     private:  
 
@@ -61,7 +57,7 @@ namespace hp{
          * @param[in] n
          * @param[in] i
          */
-        void heapify(std::vector<Node<T>> &heap, uint64_t n, int i) override;
+        void heapify(std::vector<Node<T>> &heap, uint64_t n, uint64_t i) override;
 
 
         /**
@@ -70,6 +66,11 @@ namespace hp{
         void maxHeapify();
 
     public:
+
+        using Heap<T>::heap;
+        using Heap<T>::size;
+        using Heap<T>::addElement;
+        using Heap<T>::getVector;
 
         /**
          * @brief

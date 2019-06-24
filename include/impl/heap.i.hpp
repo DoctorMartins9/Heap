@@ -17,7 +17,7 @@ namespace hp{
 
     // Return number of elements in heap
     template<typename T>
-    uint64_t Heap<T>::getElements(){
+    uint64_t Heap<T>::size(){
         return heap.size();
     }
 
@@ -26,7 +26,7 @@ namespace hp{
 
         std::vector<T> vect;
         
-        vect.resize(getElements());
+        vect.resize(size());
         
         for(uint64_t i = 0; i < heap.size(); i++){
             vect[i] = heap[i].getValue();

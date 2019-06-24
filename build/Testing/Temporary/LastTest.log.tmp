@@ -1,0 +1,56 @@
+Start testing: Jun 24 19:39 CEST
+----------------------------------------------------------
+1/8 Testing: IntHeapMax
+1/8 Test: IntHeapMax
+Command: "/home/emartini/Documenti/Heap/build/heap_test" "[IntHeapMax]"
+Directory: /home/emartini/Documenti/Heap/build
+"IntHeapMax" start time: Jun 24 19:39 CEST
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (11 assertions in 1 test case)
+
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"IntHeapMax" end time: Jun 24 19:39 CEST
+"IntHeapMax" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/8 Testing: FloatHeapTestMax
+2/8 Test: FloatHeapTestMax
+Command: "/home/emartini/Documenti/Heap/build/heap_test" "[FloatHeapTestMax]"
+Directory: /home/emartini/Documenti/Heap/build
+"FloatHeapTestMax" start time: Jun 24 19:39 CEST
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (11 assertions in 1 test case)
+
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"FloatHeapTestMax" end time: Jun 24 19:39 CEST
+"FloatHeapTestMax" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/8 Testing: DoubleHeapTestMax
+3/8 Test: DoubleHeapTestMax
+Command: "/home/emartini/Documenti/Heap/build/heap_test" "[DoubleHeapTestMax]"
+Directory: /home/emartini/Documenti/Heap/build
+"DoubleHeapTestMax" start time: Jun 24 19:39 CEST
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (11 assertions in 1 test case)
+
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DoubleHeapTestMax" end time: Jun 24 19:39 CEST
+"DoubleHeapTestMax" time elapsed: 00:00:00
+----------------------------------------------------------
+

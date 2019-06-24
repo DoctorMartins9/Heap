@@ -12,7 +12,7 @@ The final binary executable now is placed in bin directory:
 ./my_heap
 ``` 
 
-## Usage
+## Usage example
 ```
 #include "max_heap.hpp"
 
@@ -25,11 +25,18 @@ hp::MaxHeap<T>::heapSort(vec);
 
 
 ## Testing
-Using the [catch.hpp](https://github.com/catchorg/Catch2) library for testing, in build directory you have to type:
+Using the [catch2](https://github.com/catchorg/Catch2) library for testing, in build directory type:
 
 ```
 cmake ..
 make heap_test
-make test
+./heap_test
 ```
 
+## Documentation
+Using doxigen, in build directory type:
+```
+cmake ..
+make doc
+```
+After this, go to doc/html directory and open with browser "index.html".

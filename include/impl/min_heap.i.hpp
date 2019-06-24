@@ -1,54 +1,35 @@
 
 namespace hp { 
 
-    // Build the subtree
     template<typename T>
-    void MinHeap<T>::heapify(std::vector<Node<T>> &heap, uint64_t n, int i) {
+    void MinHeap<T>::heapify(std::vector<Node<T>> &heap, uint64_t n, uint64_t i) {
         
-        int smallest = i; 
-        int l = 2*i + 1; 
-        int r = 2*i + 2;
-    
-        if (l > n && heap[l].getValue() < heap[smallest].getValue()) 
+        uint64_t smallest = i;
+        uint64_t l = 2*i + 1; 
+        uint64_t r = 2*i + 2; 
+        
+
+        if (l < n && heap[l].getValue() < heap[i].getValue() ) 
             smallest = l; 
-    
-        if (r > n && heap[r].getValue() > heap[smallest].getValue()) 
-            smallest = r;
+
+        if (r < n && heap[r].getValue() < heap[smallest].getValue() ) 
+            smallest = r; 
 
         if (smallest != i) { 
             Node<T> temp = heap[i];
             heap[i] = heap[smallest];
             heap[smallest] = temp;
-            
-            heapify(heap, n, smallest); 
-        } 
-    }
 
-    // Build the tree
+            heapify(heap, n ,smallest);  
+        }     
+    }      
+
     template<typename T>
     void MinHeap<T>::minHeapify(){
-        
-        for (int i = ( getElements() / 2 ) - 1 ; i >= 0 ; i--)
-            heapify(heap , getElements() , i);
-    
+
+        for (uint64_t i = ( size() / 2 ) - 1 ; i >= 0 ; i--)
+            heapify(heap , size() , i);
     }
-
-    template<typename T>
-    void MinHeap<T>::heapSort(std::vector<T> &vec){ 
-        
-        std::vector<T> res;
-        uint64_t size = vec.size();
-        res.reserve(size);
-        
-        MinHeap mh = MinHeap(vec);
-        
-        for(uint64_t i = 0; i < size; i++){    
-            res[i] = mh[0];
-            mh.erase(0);
-        }
-
-        vec = res; 
-    } 
     
     template<typename T>
     MinHeap<T>::MinHeap(std::vector<T> input) : Heap<T>(input) {
@@ -71,7 +52,7 @@ namespace hp {
     template<typename T>
     void MinHeap<T>::eraseByValue(T value) {
 
-        for(uint64_t i = 0 ; i < getElements() ; i++)
+        for(uint64_t i = 0 ; i < size() ; i++)
             if(heap[i].getValue() == value ){
                 heap.erase(heap.begin() + i);
                 i = -1;
@@ -82,14 +63,9 @@ namespace hp {
     template<typename T>
     void MinHeap<T>::addVector(std::vector<T> &vec) {
         
-        for(int i = 0; i < vec.size() ; i++ )
+        for(uint64_t i = 0; i < vec.size() ; i++ )
             addElement(vec[i]);
         
-    }
-
-    template<typename T>
-    void MinHeap<T>::addHeap(Heap<T> &vector) {
-        // TODO
     }
 
     template<typename T>
@@ -102,18 +78,6 @@ namespace hp {
 
         return MinHeap(s);
     }
-
-        // Virtual cannot implement template !!
-        /*
-        template<typename T>
-        void erase(uint64_t index){}
-        template<typename T>
-        void eraseByValue(T value){}
-        template<typename T>
-        void addVector(std::vector<T> &vec){}
-        template<typename T>
-        void addHeap(Heap<T> &vector){}
-         */
         
 }   // namespace 'heap'
 

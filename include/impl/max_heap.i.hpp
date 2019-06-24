@@ -1,13 +1,12 @@
 
 namespace hp { 
 
-    // Build the subtree
     template<typename T>
-    void MaxHeap<T>::heapify(std::vector<Node<T>> &heap, uint64_t n, int i) {
+    void MaxHeap<T>::heapify(std::vector<Node<T>> &heap, uint64_t n, uint64_t i) {
         
-        int largest = i; 
-        int l = 2*i + 1; 
-        int r = 2*i + 2;
+        uint64_t largest = i; 
+        uint64_t l = 2*i + 1; 
+        uint64_t r = 2*i + 2;
     
         if (l < n && heap[l].getValue() > heap[largest].getValue()) 
             largest = l; 
@@ -15,8 +14,7 @@ namespace hp {
         if (r < n && heap[r].getValue() > heap[largest].getValue()) 
             largest = r;
 
-        if (largest != i) 
-        { 
+        if (largest != i) { 
             Node<T> temp = heap[i];
             heap[i] = heap[largest];
             heap[largest] = temp;
@@ -29,8 +27,8 @@ namespace hp {
     template<typename T>
     void MaxHeap<T>::maxHeapify(){
         
-        for (int i = ( getElements() / 2 ) - 1 ; i >= 0 ; i--)
-            heapify(heap , getElements() , i);
+        for (int i = ( size() / 2 ) - 1 ; i >= 0 ; i--)
+            heapify(heap , size() , i);
     
     }
 
@@ -71,7 +69,7 @@ namespace hp {
     template<typename T>
     void MaxHeap<T>::eraseByValue(T value) {
 
-        for(uint64_t i = 0 ; i < getElements() ; i++)
+        for(uint64_t i = 0 ; i < size() ; i++)
             if(heap[i].getValue() == value ){
                 heap.erase(heap.begin() + i);
                 i = -1;
@@ -82,7 +80,7 @@ namespace hp {
     template<typename T>
     void MaxHeap<T>::addVector(std::vector<T> &vec) {
         
-        for(int i = 0; i < vec.size() ; i++ )
+        for(uint64_t i = 0; i < vec.size() ; i++ )
             addElement(vec[i]);
         
     }

@@ -48,11 +48,6 @@ namespace hp{
     template<typename T>
     class MinHeap : public Heap<T> {
     
-    using Heap<T>::heap;
-    using Heap<T>::getElements;
-    using Heap<T>::addElement;
-    using Heap<T>::getVector;
-
     private:  
 
         /**
@@ -61,28 +56,26 @@ namespace hp{
          * @param[in] n
          * @param[in] i
          */
-        void heapify(std::vector<Node<T>> &heap, uint64_t n, int i) override;
-
+        void heapify(std::vector<Node<T>> &heap, uint64_t n, uint64_t i) override;
 
         /**
          * @brief
          */
         void minHeapify();
 
+
     public:
+
+        using Heap<T>::heap;
+        using Heap<T>::size;
+        using Heap<T>::addElement;
+        using Heap<T>::getVector;
 
         /**
          * @brief
          * @param[in] input
          */
         MinHeap(std::vector<T> input);
-
-        /**
-         * @brief
-         * @param[in] vec
-         */
-        static void heapSort(std::vector<T> &vec);
-        
 
         /**
          * @brief
@@ -108,11 +101,6 @@ namespace hp{
          */
         void addVector(std::vector<T> &vec);
 
-        /**
-         * @brief
-         * @param[in] vector
-         */
-        void addHeap(Heap<T> &vector);
 
         /**
          * @brief
