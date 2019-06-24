@@ -16,6 +16,8 @@ impl/heap.i.hpp
 
 ../include/impl/max_heap.i.hpp
 
+../include/impl/min_heap.i.hpp
+
 ../include/impl/node.i.hpp
 vector
 -
@@ -26,6 +28,12 @@ iostream
 heap.hpp
 ../include/heap.hpp
 impl/max_heap.i.hpp
+-
+
+../include/min_heap.hpp
+heap.hpp
+../include/heap.hpp
+impl/min_heap.i.hpp
 -
 
 ../include/node.hpp
@@ -423,6 +431,8 @@ algorithm
 /home/emartini/Documenti/Heap/tests/test.cpp
 max_heap.hpp
 /home/emartini/Documenti/Heap/tests/max_heap.hpp
+min_heap.hpp
+/home/emartini/Documenti/Heap/tests/min_heap.hpp
 catch.hpp
 /home/emartini/Documenti/Heap/tests/catch.hpp
 

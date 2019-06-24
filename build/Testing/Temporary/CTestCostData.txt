@@ -1,4 +1,4 @@
-IntHeapTest 11 0.000313369
-FloatHeapTest 12 0.000276923
-DoubleHeapTest 12 0.000321249
+IntHeapTest 1 0.00279307
+FloatHeapTest 1 0.00342107
+DoubleHeapTest 1 0.00322008
 ---

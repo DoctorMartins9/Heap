@@ -11,13 +11,13 @@ namespace hp{
     template<typename T>
     Heap<T>::Heap (std::vector<T> input) {
         
-        for(uint i = 0; i < input.size(); i++)
+        for(uint64_t i = 0; i < input.size(); i++)
             addElement(input[i]);
     }
 
     // Return number of elements in heap
     template<typename T>
-    uint Heap<T>::getElements(){
+    uint64_t Heap<T>::getElements(){
         return heap.size();
     }
 
@@ -28,7 +28,7 @@ namespace hp{
         
         vect.resize(getElements());
         
-        for(uint i = 0; i < heap.size(); i++){
+        for(uint64_t i = 0; i < heap.size(); i++){
             vect[i] = heap[i].getValue();
         }
 
@@ -41,7 +41,7 @@ namespace hp{
         std::string result = "{ ";
                 
         auto heap = hp.getVector();
-        for(uint i = 0 ; i < heap.size(); i++)
+        for(uint64_t i = 0 ; i < heap.size(); i++)
             result+= "(" + std::to_string(heap[i]) + ") ";
             
         result += "}";

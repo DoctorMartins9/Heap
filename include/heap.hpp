@@ -36,7 +36,6 @@
  */
 
 #pragma once
-
 #include "node.hpp"
 
 namespace hp{
@@ -59,7 +58,7 @@ namespace hp{
          * @param[in] n
          * @param[in] i
          */
-        virtual void heapify(std::vector<Node<T>> &heap, uint n, int i) = 0;
+        virtual void heapify(std::vector<Node<T>> &heap, uint64_t n, int i) = 0;
 
     public:
 
@@ -79,7 +78,7 @@ namespace hp{
          * @brief
          * @param[in] index
          */
-        void erase(uint index);
+        void erase(uint64_t index);
 
         /**
          * @brief
@@ -105,7 +104,7 @@ namespace hp{
          * @brief
          * @return
          */
-        uint getElements();
+        uint64_t getElements();
 
         /**
          * @brief

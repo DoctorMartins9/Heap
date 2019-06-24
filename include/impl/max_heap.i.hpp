@@ -3,7 +3,7 @@ namespace hp {
 
     // Build the subtree
     template<typename T>
-    void MaxHeap<T>::heapify(std::vector<Node<T>> &heap, uint n, int i) {
+    void MaxHeap<T>::heapify(std::vector<Node<T>> &heap, uint64_t n, int i) {
         
         int largest = i; 
         int l = 2*i + 1; 
@@ -37,10 +37,10 @@ namespace hp {
     template<typename T>
     void MaxHeap<T>::heapSort(std::vector<T> &vec){ 
         std::vector<T> res;
-        uint size = vec.size();
+        uint64_t size = vec.size();
         res.reserve(size);
         MaxHeap mh = MaxHeap(vec);
-        for(uint i = 0; i < size; i++){
+        for(uint64_t i = 0; i < size; i++){
             
             res.insert(res.end() -i, mh[0]);
             mh.erase(0);
@@ -63,7 +63,7 @@ namespace hp {
     }
 
     template<typename T>
-    void MaxHeap<T>::erase(uint index) {
+    void MaxHeap<T>::erase(uint64_t index) {
         heap.erase(heap.begin() + index);
         maxHeapify();
     }
@@ -71,7 +71,7 @@ namespace hp {
     template<typename T>
     void MaxHeap<T>::eraseByValue(T value) {
 
-        for(uint i = 0 ; i < getElements() ; i++)
+        for(uint64_t i = 0 ; i < getElements() ; i++)
             if(heap[i].getValue() == value ){
                 heap.erase(heap.begin() + i);
                 i = -1;
@@ -106,7 +106,7 @@ namespace hp {
         // Virtual cannot implement template !!
         /*
         template<typename T>
-        void erase(uint index){}
+        void erase(uint64_t index){}
         template<typename T>
         void eraseByValue(T value){}
         template<typename T>

@@ -1,4 +1,5 @@
 #include "max_heap.hpp"
+#include "min_heap.hpp"
 
 # define CATCH_CONFIG_MAIN
 # include "catch.hpp"

@@ -23,6 +23,7 @@ hp::MaxHeap<T>::heapSort(vec);
 
 ```
 
+
 ## Testing
 Using the [catch.hpp](https://github.com/catchorg/Catch2) library for testing, in build directory you have to type:
 
